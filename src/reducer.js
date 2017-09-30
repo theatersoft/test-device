@@ -19,7 +19,7 @@ export default function reducer (state, action) {
             ...state,
             devices: {
                 ...state.devices,
-                [device.id]: {device}
+                [device.id]: device
             }
         }
     }

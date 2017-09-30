@@ -11,7 +11,7 @@ import {switchActions} from '@theatersoft/device'
 export const {ON, OFF, on, off} = switchActions
 
 export const
-    pulse = ({name, id, type = Type.BinarySensor} = {}) => (dispatch, getState) => {
+    pulse = ({name, id, type = Type.MotionSensor} = {}) => (dispatch, getState) => {
         if (!name || !id) return Promise.reject('malformed device')
         if (!getState().devices[id])
             dispatch(addDevice({name, type, id}))
