@@ -1,0 +1,7 @@
+/dist
+/node_modules
+/test/node_modules
+/_*
+.idea
+*.log
+package-lock.json
