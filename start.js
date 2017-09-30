@@ -1,6 +1,7 @@
 'use strict'
+process.on('unhandledRejection', e => console.log(e))
 const
-    {bus} = require('@theatersoft/bus').default,
+    {bus} = require('@theatersoft/bus'),
     options = {
         module: '@theatersoft/test-device',
         export: 'TestDevice',
