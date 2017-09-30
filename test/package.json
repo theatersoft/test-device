@@ -1,0 +1,16 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "author": "Rob Huehn <rob@theatersoft.com>",
+  "private": true,
+  "license": "AGPL-3.0",
+  "scripts": {
+    "postinstall": "npm link @theatersoft/bus",
+    "BUS": "env $(cat /opt/theatersoft/.config/theatersoft/.bus | xargs)",
+    "RUN": "npm run BUS -- node",
+    "pulse": "npm run RUN -- pulse.js",
+    "debug-pulse": "npm run RUN --  --inspect-brk=9231 pulse.js"
+  },
+  "dependencies": {
+  }
+}

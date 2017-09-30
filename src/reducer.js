@@ -1,17 +1,31 @@
 import {ON, on, OFF, off} from './actions'
-import {INIT_DEVICES} from './actions'
+import {INIT_DEVICES, ADD_DEVICE} from './actions'
 
 export default function reducer (state, action) {
     const {type} = action
     switch (type) {
     case INIT_DEVICES:
+    {
         const {devices} = action
         return {
             ...state,
             devices
         }
+    }
+    case ADD_DEVICE:
+    {
+        const {device} = action
+        return {
+            ...state,
+            devices: {
+                ...state.devices,
+                [device.id]: {device}
+            }
+        }
+    }
     case ON:
     case OFF:
+    {
         const
             {id, time} = action,
             device = state.devices[id],
@@ -24,6 +38,7 @@ export default function reducer (state, action) {
                     [id]: time ? {...device, value, time} : {...device, value}
                 }
             }
+    }
     }
     return state
 }

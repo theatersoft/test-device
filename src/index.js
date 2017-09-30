@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'remote-redux-devtools'
 import reducer from './reducer'
 import bus from '@theatersoft/bus'
-import {initDevices, off, api} from './actions'
+import {initDevices, pulse} from './actions'
 
 export class TestDevice {
     start ({name, config: {remotedev}}) {
@@ -14,7 +14,7 @@ export class TestDevice {
                     (remotedev && composeWithDevTools({name, realtime: true, port: 6400, hostname: remotedev}) || (x => x))
                     (applyMiddleware(thunk.withExtraArgument({})))
                 )
-                this.store.subscribe(state => obj.signal('state', state))
+                this.store.subscribe(state => obj.signal('state', this.store.getState()))
                 const register = () => bus.proxy('Device').registerService(this.name)
                 bus.registerListener(`Device.start`, register)
                 bus.on('reconnect', register)
@@ -26,15 +26,17 @@ export class TestDevice {
         return bus.unregisterObject(this.name)
     }
 
-    dispatch (action) {
-        return this.store.dispatch(api(action))
-    }
-
     getState () {
         return this.store.getState()
     }
 
-    pulseSensor (name, id) {
-
+    /*::
+     type Device = {
+        name: string,   // header
+        id: string          // path
+     }
+     */
+    pulse (device /*: Device */) {
+        return this.store.dispatch(pulse(device))
     }
 }
