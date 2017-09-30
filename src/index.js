@@ -11,7 +11,7 @@ export class TestDevice {
         return bus.registerObject(name, this)
             .then(obj => {
                 this.store = createStore(reducer, {devices: {}},
-                    (remotedev && composeWithDevTools({name: 'TestDevice', realtime: true, port: 6400, hostname: remotedev}) || (x => x))
+                    (remotedev && composeWithDevTools({name, realtime: true, port: 6400, hostname: remotedev}) || (x => x))
                     (applyMiddleware(thunk.withExtraArgument({})))
                 )
                 this.store.subscribe(state => obj.signal('state', state))
@@ -32,5 +32,9 @@ export class TestDevice {
 
     getState () {
         return this.store.getState()
+    }
+
+    pulseSensor (name, id) {
+
     }
 }

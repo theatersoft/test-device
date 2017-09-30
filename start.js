@@ -5,7 +5,7 @@ const
     options = {
         module: '@theatersoft/test-device',
         export: 'TestDevice',
-        name: 'TestDevice',
+        name: 'PageView',
         config: {
             remotedev: 'localhost'
         }
