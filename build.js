@@ -17,8 +17,7 @@ const
     ignore = require('rollup-plugin-ignore'),
     nodeResolve = require('rollup-plugin-node-resolve'),
     strip = require('rollup-plugin-strip'),
-    commonjs = require('rollup-plugin-commonjs'),
-    includePaths = require('rollup-plugin-includepaths')
+    commonjs = require('rollup-plugin-commonjs')
 
 const targets = {
     node () {
@@ -89,13 +88,9 @@ const targets = {
                     plugins: [
                         //require("babel-plugin-transform-class-properties"),
                         [require("babel-plugin-transform-object-rest-spread"), {useBuiltIns: true}]
-                    ]
+                    ],
+                    presets: [["es2015", { "modules": false }]]
                 }),
-                //includePaths({
-                //    include: {
-                //        '@theatersoft/bus': '../node_modules/@theatersoft/bus/bus.js'
-                //    }
-                //}),
                 commonjs({
                     include: [
                         'node_modules/**'
