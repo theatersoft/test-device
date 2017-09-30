@@ -1,7 +1,8 @@
 /dist
-/node_modules
+node_modules
 /test/node_modules
 /_*
 .idea
 *.log
 package-lock.json
+/webtask/dist/pageview.js

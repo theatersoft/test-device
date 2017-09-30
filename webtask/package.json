@@ -1,0 +1,15 @@
+{
+  "name": "webtask",
+  "version": "1.0.0",
+  "author": "Rob Huehn <rob@theatersoft.com>",
+  "private": true,
+  "license": "AGPL-3.0",
+  "scripts": {
+    "build": "cd .. && node build.js webtask && ls -l dist",
+    "create": "cd dist && wt create pageview.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "wt-cli": "^6.5.2"
+  }
+}

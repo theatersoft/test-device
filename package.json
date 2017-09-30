@@ -10,7 +10,7 @@
   "author": "Rob Huehn <rob@theatersoft.com>",
   "license": "AGPL-3.0",
   "scripts": {
-    "postinstall": "npm link @theatersoft/device",
+    "postinstall": "npm link @theatersoft/bus @theatersoft/device",
     "build": "node build.js && ls -l dist",
     "build:dist": "DIST=true npm run build",
     "publish": "node build.js publish",
@@ -33,6 +33,7 @@
     }
   },
   "devDependencies": {
+    "@theatersoft/bus": "~1",
     "@theatersoft/device": "~1",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-class-properties": "^6.19.0",
@@ -40,9 +41,11 @@
     "babel-plugin-transform-react-jsx": "^6.8.0",
     "babel-preset-babili": "0.0.8",
     "chokidar": "^1.6.1",
-    "rollup": "^0.42.0",
+    "rollup": "^0.43.0",
     "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^5.0.5",
     "rollup-plugin-ignore": "^1.0.3",
+    "rollup-plugin-includepaths": "^0.2.2",
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-strip": "^1.1.1",
     "shelljs": "^0.7.4"
