@@ -15,6 +15,6 @@ export const
         if (!name || !id) return Promise.reject('malformed device')
         if (!getState().devices[id])
             dispatch(addDevice({name, type, id}))
-        dispatch(on(id))
+        dispatch({...on(id), time: Date.now()})
         setTimeout(() => dispatch(off(id)), 5000)
     }
