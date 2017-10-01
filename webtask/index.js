@@ -7,6 +7,7 @@ export default function (context, callback) {
         {name = 'Home', id = '/'} = context.data
     bus.start({parent: {url, auth}})
         .then(() => proxy('PageView').pulse({name, id}))
-        .catch(e => log(e))
         .then(bus.close)
+        .catch(e => log(e))
+        .then(() => callback(null))
 }
