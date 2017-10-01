@@ -87,8 +87,6 @@ const targets = {
                     minified: DIST,
                     plugins: [
                         ['transform-object-rest-spread', {useBuiltIns: true}],
-                        //'proxy'
-                        // TypeError: /home/rob/Theatersoft/test-device/node_modules/@theatersoft/bus/bus.js: Property value expected type of string but got null
                     ],
                     presets: [["es2015", { "modules": false }]]
                 }),
