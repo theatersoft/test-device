@@ -1,6 +1,7 @@
 import {bus, proxy, log} from '../node_modules/@theatersoft/bus/bus.js'
 
 export default function (context, callback) {
+    log(process.version) // v4.8.4, ES6 Proxy not implemented
     const
         {BUS: url, AUTH: auth} = context.secrets,
         {name = 'Home', id = '/'} = context.data

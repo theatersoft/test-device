@@ -73,7 +73,7 @@ const targets = {
     },
 
     webtask () {
-        console.log('target node')
+        console.log('target webtask')
         exec('mkdir -p dist')
         rollup({
             entry: 'webtask/index.js',
@@ -86,8 +86,9 @@ const targets = {
                     comments: !DIST,
                     minified: DIST,
                     plugins: [
-                        //require("babel-plugin-transform-class-properties"),
-                        [require("babel-plugin-transform-object-rest-spread"), {useBuiltIns: true}]
+                        ['transform-object-rest-spread', {useBuiltIns: true}],
+                        //'proxy'
+                        // TypeError: /home/rob/Theatersoft/test-device/node_modules/@theatersoft/bus/bus.js: Property value expected type of string but got null
                     ],
                     presets: [["es2015", { "modules": false }]]
                 }),

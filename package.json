@@ -36,6 +36,7 @@
     "@theatersoft/bus": "~1",
     "@theatersoft/device": "~1",
     "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-proxy": "^1.1.0",
     "babel-plugin-transform-class-properties": "^6.19.0",
     "babel-plugin-transform-object-rest-spread": "^6.22.0",
     "babel-plugin-transform-react-jsx": "^6.8.0",
