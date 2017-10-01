@@ -6,7 +6,7 @@
   "license": "AGPL-3.0",
   "scripts": {
     "build": "cd .. && node build.js webtask && ls -l dist",
-    "create": "cd dist && wt create pageview.js"
+    "create": "cd dist && wt create pageview.js --secrets-file .bus"
   },
   "dependencies": {},
   "devDependencies": {
